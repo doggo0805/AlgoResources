@@ -135,18 +135,20 @@ void solve(int t){
 int C(int *a,int n){
     int sum=0;
     for(int i=1;i<n+1;++i){
-        sum+=((n-i)%10+1)*a[i-1];
+        sum+=((n-i)%10+1)*a[i];
 
     }
-    return sum%11;
+    if(sum%11 == a[i+1]) return 1;
+    else return 0;
 }
 int K(int *a,int n){
     int sum=0;
     for(int i=1;i<n+1;++i){
-        sum+=((n-i+1)%9+1)*a[i-1];
+        sum+=((n-i+1)%9+1)*a[i];
     }
     sum+=C(a,n);
-    return sum%11;
+    if(sum%11 == a[i+2]) return 1;
+    else return 0;
 }
 int reverse(int* wid, int n){
   for(int i = 0; i<n/2; ++i){
